@@ -5,8 +5,10 @@ paths:
 
 # Component Usage Guide
 
-- Always Prioritize Nuxt UI components over custom-built equivalents for UI base components (e.g., buttons, inputs, cards, etc).
+- Always Prioritize Nuxt UI components.
+- Prefer Nuxt UI semantic colors over custom-defined TailwindCSS colors.
 - Refer to the Nuxt UI MCP to see available components and their precise configurations.
+- Prefer to use `ui` prop to style Nuxt UI component over `class`.
 - Use `unovis` to create chart components.
 
 # Component Conventions

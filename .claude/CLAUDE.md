@@ -1,5 +1,6 @@
 # Architecture Patterns
 
+- SSR is disabled.
 - Main directory for app live in [/app](../app/) directory.
 - BFF Proxies live in [/server](../server/) directory.
 - Shared utils for Main App and BFF live in [/shared](../shared/) directory.

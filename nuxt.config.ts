@@ -2,6 +2,17 @@
 export default defineNuxtConfig({
    modules: ["@nuxt/eslint", "@nuxt/ui", "@vueuse/nuxt"],
 
+   ssr: false,
+
+   components: {
+      dirs: [
+         {
+            path: "~/components",
+            pathPrefix: false,
+         },
+      ],
+   },
+
    devtools: {
       enabled: true,
    },

@@ -36,3 +36,6 @@ paths:
   export { $authSchema } from "./validations/auth.ts"
   ```
 
+# Workflow
+
+- Run `pnpm postinstall` after code generation to create new `.nuxt` type definitions.

@@ -233,7 +233,7 @@ const pagination = ref({
             </template>
 
             <template #right>
-               <CustomersAddModal />
+               <AddModal />
             </template>
          </UDashboardNavbar>
       </template>
@@ -248,7 +248,7 @@ const pagination = ref({
             />
 
             <div class="flex flex-wrap items-center gap-1.5">
-               <CustomersDeleteModal
+               <DeleteModal
                   :count="
                      table?.tableApi?.getFilteredSelectedRowModel().rows.length
                   "
@@ -272,7 +272,7 @@ const pagination = ref({
                         </UKbd>
                      </template>
                   </UButton>
-               </CustomersDeleteModal>
+               </DeleteModal>
 
                <USelect
                   v-model="statusFilter"
@@ -352,9 +352,7 @@ const pagination = ref({
                   0
                }}
                of
-               {{
-                  table?.tableApi?.getFilteredRowModel().rows.length || 0
-               }}
+               {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }}
                row(s) selected.
             </div>
 
