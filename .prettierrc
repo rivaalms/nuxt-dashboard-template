@@ -1,0 +1,24 @@
+{
+   "semi": false,
+   "tabWidth": 3,
+   "useTabs": false,
+   "vueIndentScriptAndStyle": false,
+   "arrowParens": "always",
+   "bracketSameLine": false,
+   "bracketSpacing": true,
+   "endOfLine": "lf",
+   "printWidth": 80,
+   "singleAttributePerLine": true,
+   "singleQuote": false,
+   "trailingComma": "es5",
+   "objectWrap": "preserve",
+   "overrides": [
+      {
+         "files": ["package.json", "tsconfig.json"],
+         "options": {
+            "tabWidth": 2
+         }
+      }
+   ],
+   "plugins": ["prettier-plugin-tailwindcss"]
+}

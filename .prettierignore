@@ -1,0 +1,11 @@
+node_modules
+.nuxt
+.output
+dist
+package-lock.json
+pnpm-lock.yaml
+*.lock
+*.lockb
+.env
+.env.*
+.DS_Store
