@@ -1,64 +1,101 @@
 # Nuxt Dashboard Template
 
-[![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
+This project is a modern, robust, and highly responsive dashboard template built using **Nuxt 4**, **Nuxt UI v4**, and **Tailwind CSS v4**. It features a modular directory structure that separates application frontend (`app`), server-side API (`server`), and shared code/utilities (`shared`).
 
-Get started with the Nuxt dashboard template with multiple pages, collapsible sidebar, keyboard shortcuts, light & dark mode, command palette and more, powered by [Nuxt UI](https://ui.nuxt.com).
+---
 
-- [Live demo](https://dashboard-template.nuxt.dev/)
-- [Documentation](https://ui.nuxt.com/docs/getting-started/installation/nuxt)
+## 🚀 Key Features
 
-<a href="https://dashboard-template.nuxt.dev/" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://ui.nuxt.com/assets/templates/nuxt/dashboard-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://ui.nuxt.com/assets/templates/nuxt/dashboard-light.png">
-    <img alt="Nuxt Dashboard Template" src="https://ui.nuxt.com/assets/templates/nuxt/dashboard-light.png">
-  </picture>
-</a>
+- **Nuxt 4 & Vue 3**: Leverages the latest Nuxt framework release with optimal performance and advanced features like the new directory layout.
+- **Nuxt UI v4**: A premium component library built specifically for Nuxt, offering accessibility (WAI-ARIA compliance) and stunning visuals.
+- **Tailwind CSS v4**: The next-generation, lightning-fast utility-first CSS engine for unlimited styling freedom.
+- **Full TypeScript Integration**: Complete type safety across all layers of the application.
+- **Data Visualization**: Integrated with `@unovis/vue` and `@unovis/ts` to render beautiful and interactive charts.
+- **Shared Validation Schemas**: Consistent client-side and server-side data validation powered by **Zod**.
+- **Automated Linting & Formatting**: Clean and consistent code style maintained automatically via **ESLint** and **Prettier**.
 
-> The dashboard template for Vue is on https://github.com/nuxt-ui-templates/dashboard-vue.
+---
 
-## Quick Start
+## 🛠️ Tech Stack & Dependencies
 
-```bash [Terminal]
-npm create nuxt@latest -- -t ui/dashboard
+| Category | Technology | Description |
+| :--- | :--- | :--- |
+| **Framework** | [Nuxt v4](https://nuxt.com/) | Hybrid Vue.js framework for high-performance web applications. |
+| **UI & Styling** | [Nuxt UI v4](https://ui.nuxt.com/) & [Tailwind CSS v4](https://tailwindcss.com/) | Premium, accessible components and utility classes. |
+| **Vue Utilities** | [VueUse](https://vueuse.org/) | A collection of essential Vue composition utilities. |
+| **Data Visualization**| [Unovis](https://unovis.dev/) | A modular data visualization and charting framework. |
+| **Validation** | [Zod](https://zod.dev/) | TypeScript-first schema validation. |
+| **Table** | [TanStack Table](https://tanstack.com/table/v8) | Headless UI for building powerful tables & datagrids. |
+| **Date Utils** | `date-fns` & `@internationalized/date` | Reliable date management and internationalization. |
+
+---
+
+## 📁 Directory Structure
+
+This project adopts the standardized Nuxt 4 directory structure:
+
+```text
+├── app/                  # Frontend Application
+│   ├── assets/           # Media, stylesheets, global Tailwind imports
+│   ├── components/       # Reusable Vue components
+│   ├── composables/      # State management and shared logic
+│   ├── layouts/          # Application layouts (Default dashboard, etc.)
+│   ├── pages/            # File-based routing
+│   ├── utils/            # Frontend helper functions
+│   ├── app.vue           # Main application entry point
+│   └── app.config.ts     # Nuxt UI theme configurations
+├── server/               # Backend API / Nitro Server
+│   ├── api/              # API Route endpoints (/api/...)
+│   └── utils/            # Backend-specific utility functions
+├── shared/               # Shared Code (Client & Server)
+│   ├── types/            # TypeScript interface & DTO definitions
+│   └── utils/            # Shared validation schemas (Zod) & formatters
+├── nuxt.config.ts        # Main Nuxt configuration file
+└── package.json          # Dependencies and package scripts
 ```
 
-## Deploy your own
+---
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-name=dashboard&repository-url=https%3A%2F%2Fgithub.com%2Fnuxt-ui-templates%2Fdashboard&demo-image=https%3A%2F%2Fui.nuxt.com%2Fassets%2Ftemplates%2Fnuxt%2Fdashboard-dark.png&demo-url=https%3A%2F%2Fdashboard-template.nuxt.dev%2F&demo-title=Nuxt%20Dashboard%20Template&demo-description=A%20dashboard%20template%20with%20multi-column%20layout%20for%20building%20sophisticated%20admin%20interfaces.)
+## ⚙️ Setup & Installation
 
-## Setup
+Ensure you have [Node.js](https://nodejs.org/) (latest LTS version recommended) and [pnpm](https://pnpm.io/) installed.
 
-Make sure to install the dependencies:
-
+### 1. Install Dependencies
+Install all required libraries by running the following command in your terminal:
 ```bash
 pnpm install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
+### 2. Start the Development Server
+Launch the local development environment:
 ```bash
 pnpm dev
 ```
+Open [http://localhost:3000](http://localhost:3000) in your web browser.
 
-## Production
+---
 
-Build the application for production:
+## 📦 Available Scripts
 
-```bash
-pnpm build
-```
+| Command | Description |
+| :--- | :--- |
+| `pnpm dev` | Starts the development server at `http://localhost:3000`. |
+| `pnpm build` | Builds the application for production. |
+| `pnpm preview` | Runs the locally built production application for previewing. |
+| `pnpm format` | Formats all codebase files using Prettier. |
+| `pnpm lint` | Audits the code quality using ESLint. |
+| `pnpm lint:fix` | Audits and automatically corrects fixable ESLint errors. |
+| `pnpm typecheck` | Validates TypeScript types across the entire codebase. |
 
-Locally preview production build:
+---
 
-```bash
-pnpm preview
-```
+## 🛡️ Code Quality & Standards
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This project maintains high-quality standards through strict guidelines:
+- **ESLint** is configured with Nuxt and Prettier configurations to auto-format and lint code on save.
+- All API Data Transfer Objects (DTOs) should be declared inside `shared/types/dto` to ensure identical contracts are shared between the frontend and the backend.
+- Form and authentication schemas are hosted inside `shared/utils/validations` using **Zod**, allowing immediate verification on the client side before submission and on the server side upon receiving requests.
 
-## Renovate integration
+## 🤖 AI Assisted Development
 
-Install [Renovate GitHub app](https://github.com/apps/renovate/installations/select_target) on your repository and you are good to go.
+This project comes with Claude Code configurations available at [.claude](./.claude) diractory. Review and customize it to match your development preferences and conventions. 
