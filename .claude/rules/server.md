@@ -5,8 +5,8 @@ paths:
 
 # BFF Proxy Conventions
 
-- Use `$serverApi` util to communicate with downstream APIs.
-- Every endpoint that returns JSON data must override Nitro's `toJSON()` to maintain type definitions in the client:
+- Use [`$serverApi`](../../server/utils/$serverApi.ts) util to communicate with downstream APIs.
+- Every endpoint that returns JSON data must override Nitro's `toJSON()` to maintain type definitions in the client.
 - Every endpoint must have a DTO defined in [shared DTO directory](../../shared/types/dto).
 - **Do not** insert `any` to response type inference.
 - If required DTO is missing, create a new DTO (empty interface preferred) and asks user to review it.

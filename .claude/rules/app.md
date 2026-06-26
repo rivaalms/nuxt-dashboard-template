@@ -3,6 +3,12 @@ paths:
   - app/**/*
 ---
 
+# General Conventions
+
+- Use `date-fns` library to format dates.
+- Use [number formatter repository](../../shared/utils/number-formatter.ts) to format number. If you cannot find number formatter you need, create new formatter here.
+- Use `useToast()` composable from Nuxt UI to manage toast notifications.
+
 # Component Usage Guide
 
 - Always Prioritize Nuxt UI components.
