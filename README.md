@@ -66,7 +66,13 @@ Install all required libraries by running the following command in your terminal
 pnpm install
 ```
 
-### 2. Start the Development Server
+### 2. Write Environment Variables
+Copy `.env.example` to `.env` and fill in the required environment variables:
+```bash
+cp .env.example .env
+```
+
+### 3. Start the Development Server
 Launch the local development environment:
 ```bash
 pnpm dev

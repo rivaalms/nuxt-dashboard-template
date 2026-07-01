@@ -33,6 +33,13 @@ export default defineNuxtConfig({
       },
    },
 
+   runtimeConfig: {
+      apiUrl: import.meta.env.API_URL,
+      public: {
+         appName: import.meta.env.APP_NAME,
+      },
+   },
+
    routeRules: {
       "/api/**": {
          cors: true,

@@ -10,24 +10,37 @@ const props = withDefaults(defineProps<AppLogoProps>(), {
    collapsed: false,
    to: "/",
 })
+
+const runtimeConfig = useRuntimeConfig().public
+
+const appNameComponent = computed(() => {
+   const appName = runtimeConfig.appName
+   if (!props.collapsed) {
+      return h(
+         "div",
+         {
+            class: "flex flex-col",
+         },
+         [
+            h("div", { class: "text-highlighted leading-tight font-black" }, [
+               h("div", null, () => appName),
+            ]),
+         ]
+      )
+   }
+
+   return h(
+      "div",
+      {
+         class: "aspace-square bg-primary-50 dark:bg-primary-950 flex size-8 items-center justify-center rounded-lg p-2",
+      },
+      [h("span", { class: "text-primary text-sm font-black" }, ["X"])]
+   )
+})
 </script>
 
 <template>
    <NuxtLink :to="props.to">
-      <div
-         v-show="!props.collapsed"
-         class="flex flex-col"
-      >
-         <div class="text-highlighted leading-tight font-black">
-            Trans<span class="text-primary">X</span>
-         </div>
-      </div>
-      <div v-show="props.collapsed">
-         <div
-            class="aspace-square bg-primary-50 dark:bg-primary-950 flex size-8 items-center justify-center rounded-lg p-2"
-         >
-            <span class="text-primary text-sm font-black"> X </span>
-         </div>
-      </div>
+      <component :is="appNameComponent" />
    </NuxtLink>
 </template>

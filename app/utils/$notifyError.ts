@@ -17,7 +17,7 @@ function resolveErrorToast(e: unknown): Partial<Toast> {
         ? e.name
         : "Error"
    const description =
-      isNuxtError(e) || isGeneralError(e)
+      isError(e) || isGeneralError(e)
          ? e.message
          : "An unexpected error occurred"
 
