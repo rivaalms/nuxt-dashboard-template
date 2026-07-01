@@ -14,27 +14,28 @@ paths:
 - Use [Zod 4](https://zod.dev/) to define validation schemas.
 - Validation schemas are grouped by module, with repository object pattern.
 - Example:
-  ```typescript
-  // shared/tuils/validations/auth.ts
-  import { z } from "zod"
 
-  export const $authSchema = {
-    get login() {
-      return z.object({
-        email: z.email().nonempty(),
-        password: z.string().min(8)
-      })
-    }
-  }
-  ```
+   ```typescript
+   // shared/tuils/validations/auth.ts
+   import { z } from "zod"
+
+   export const $authSchema = {
+      get login() {
+         return z.object({
+            email: z.email().nonempty(),
+            password: z.string().min(8),
+         })
+      },
+   }
+   ```
 
 # Shared Utils Conventions
 
 - When creating shared utils inside nested directories, re-export the utils in [shared/utils/index.ts](../../shared/utils/index.ts).
-  ```typescript
-  // shared/utils/index.ts
-  export { $authSchema } from "./validations/auth.ts"
-  ```
+   ```typescript
+   // shared/utils/index.ts
+   export { $authSchema } from "./validations/auth.ts"
+   ```
 
 # Workflow
 

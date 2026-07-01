@@ -5,6 +5,7 @@ paths:
 
 # General Conventions
 
+- Prioritize to use `/nuxt-ui` skill for UI generation.
 - Use `date-fns` library to format dates.
 - Use [number formatter repository](../../shared/utils/number-formatter.ts) to format number. If you cannot find number formatter you need, create new formatter here.
 - Use `useToast()` composable from Nuxt UI to manage toast notifications.
@@ -22,3 +23,27 @@ paths:
 - Components are named with a usage-scope prefix (e.g., `FormAuth`, `ModalLayout`, `SectionHeader`).
 - Component directories are named with its usage-scope plural (e.g., `components/forms`, `components/modal`, `components/sections`).
 - Use component directly by its name (e.g., `components/forms/FormAuth.vue` is `<FormAuth />` in templates).
+
+# Pages Directory Structure
+
+- Use nested directory structure. Example:
+
+   ```sh
+    └── pages/
+        ├── users/
+        │   ├── index.vue
+        │   └── [id]/
+        │       └── index.vue
+        └── index.vue
+
+   ```
+
+- Always define page title in page meta:
+
+   ```vue
+   <script setup lang="ts">
+   definePageMeta({
+      title: "Page Title",
+   })
+   </script>
+   ```
