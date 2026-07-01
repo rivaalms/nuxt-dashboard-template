@@ -120,7 +120,7 @@ const groups = computed(() => [
          :ui="{ footer: 'lg:border-t lg:border-default' }"
       >
          <template #header="{ collapsed }">
-            <TeamsMenu :collapsed="collapsed" />
+            <AppLogo :collapsed="collapsed" />
          </template>
 
          <template #default="{ collapsed }">
@@ -137,15 +137,22 @@ const groups = computed(() => [
                popover
             />
          </template>
-
-         <template #footer="{ collapsed }">
-            <UserMenu :collapsed="collapsed" />
-         </template>
       </UDashboardSidebar>
 
       <UDashboardSearch :groups="groups" />
 
-      <slot />
+      <UDashboardPanel id="app-panel">
+         <template #header>
+            <UDashboardNavbar :title="route.meta.title">
+               <template #leading>
+                  <UDashboardSidebarCollapse />
+               </template>
+            </UDashboardNavbar>
+         </template>
+         <template #body>
+            <slot />
+         </template>
+      </UDashboardPanel>
 
       <NotificationsSlideover />
    </UDashboardGroup>
