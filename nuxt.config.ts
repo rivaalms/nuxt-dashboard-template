@@ -19,6 +19,20 @@ export default defineNuxtConfig({
 
    css: ["~/assets/css/main.css"],
 
+   ui: {
+      theme: {
+         colors: [
+            "primary",
+            "secondary",
+            "tertiary",
+            "error",
+            "warning",
+            "success",
+            "info",
+         ],
+      },
+   },
+
    routeRules: {
       "/api/**": {
          cors: true,
