@@ -1,3 +1,4 @@
+import type { NuxtError } from "#app"
 import type { Toast } from "@nuxt/ui/composables"
 
 /**
@@ -11,13 +12,13 @@ export default function (e: unknown) {
 
 /** @internal */
 function resolveErrorToast(e: unknown): Partial<Toast> {
-   const title = isError(e)
+   const title = isResponseError(e)
       ? e.statusMessage
       : isGeneralError(e)
         ? e.name
         : "Error"
    const description =
-      isError(e) || isGeneralError(e)
+      isResponseError(e) || isGeneralError(e)
          ? e.message
          : "An unexpected error occurred"
 
@@ -31,4 +32,15 @@ function resolveErrorToast(e: unknown): Partial<Toast> {
 /** @internal */
 function isGeneralError(e: unknown): e is Error {
    return e instanceof Error
+}
+
+/** @internal */
+function isResponseError(e: unknown): e is NuxtError {
+   return (
+      typeof e === "object" &&
+      e !== null &&
+      "error" in e &&
+      typeof e.error === "boolean" &&
+      "data" in e
+   )
 }

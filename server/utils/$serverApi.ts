@@ -30,6 +30,7 @@ export default function (event: H3Event) {
          if (response.status === 401) {
             deleteCookie(event, "auth-token", {
                path: "/",
+               httpOnly: true,
             })
          }
 
@@ -51,5 +52,5 @@ export default function (event: H3Event) {
  * Alter this when ApiResponse interface changed
  */
 function isApiResponse(input: unknown): input is ApiResponse<any> {
-   return typeof input === "object" && input !== null && "message" in input
+   return typeof input === "object" && input !== null && "data" in input
 }

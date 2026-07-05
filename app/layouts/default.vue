@@ -1,91 +1,16 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from "@nuxt/ui"
+import type { DropdownMenuItem } from "@nuxt/ui"
 
 const route = useRoute()
 
+const colorMode = useColorMode()
+const colorModeLabel = computed(() => {
+   return colorMode.preference === "light" ? "Terang" : "Gelap"
+})
+
 const open = ref(false)
 
-const links = [
-   [
-      {
-         label: "Home",
-         icon: "i-lucide-house",
-         to: "/",
-         onSelect: () => {
-            open.value = false
-         },
-      },
-      {
-         label: "Inbox",
-         icon: "i-lucide-inbox",
-         to: "/inbox",
-         badge: "4",
-         onSelect: () => {
-            open.value = false
-         },
-      },
-      {
-         label: "Customers",
-         icon: "i-lucide-users",
-         to: "/customers",
-         onSelect: () => {
-            open.value = false
-         },
-      },
-      {
-         label: "Settings",
-         to: "/settings",
-         icon: "i-lucide-settings",
-         defaultOpen: true,
-         type: "trigger",
-         children: [
-            {
-               label: "General",
-               to: "/settings",
-               exact: true,
-               onSelect: () => {
-                  open.value = false
-               },
-            },
-            {
-               label: "Members",
-               to: "/settings/members",
-               onSelect: () => {
-                  open.value = false
-               },
-            },
-            {
-               label: "Notifications",
-               to: "/settings/notifications",
-               onSelect: () => {
-                  open.value = false
-               },
-            },
-            {
-               label: "Security",
-               to: "/settings/security",
-               onSelect: () => {
-                  open.value = false
-               },
-            },
-         ],
-      },
-   ],
-   [
-      {
-         label: "Feedback",
-         icon: "i-lucide-message-circle",
-         to: "https://github.com/nuxt-ui-templates/dashboard",
-         target: "_blank",
-      },
-      {
-         label: "Help & Support",
-         icon: "i-lucide-info",
-         to: "https://github.com/nuxt-ui-templates/dashboard",
-         target: "_blank",
-      },
-   ],
-] satisfies NavigationMenuItem[][]
+const { items: links, breadcrumbItems } = useNavigationMenu()
 
 const groups = computed(() => [
    {
@@ -93,18 +18,22 @@ const groups = computed(() => [
       label: "Go to",
       items: links.flat(),
    },
+])
+
+const user = {
+   name: "John Doe",
+   description: "Admin",
+   avatar: {
+      src: "https://api.dicebear.com/10.x/identicon/svg",
+   },
+}
+
+const userDropdownItem = computed<DropdownMenuItem[]>(() => [
    {
-      id: "code",
-      label: "Code",
-      items: [
-         {
-            id: "source",
-            label: "View page source",
-            icon: "i-simple-icons-github",
-            to: `https://github.com/nuxt-ui-templates/dashboard/blob/main/app/pages${route.path === "/" ? "/index" : route.path}.vue`,
-            target: "_blank",
-         },
-      ],
+      label: "Logout",
+      icon: "i-lucide-log-out",
+      color: "error",
+      onSelect: () => {},
    },
 ])
 </script>
@@ -131,10 +60,17 @@ const groups = computed(() => [
 
             <UNavigationMenu
                :collapsed="collapsed"
-               :items="links[0]"
+               :items="links"
                orientation="vertical"
                tooltip
                popover
+            />
+         </template>
+
+         <template #footer="{ collapsed }">
+            <UColorModeButton
+               :label="(!collapsed && colorModeLabel) || undefined"
+               class="w-full"
             />
          </template>
       </UDashboardSidebar>
@@ -143,17 +79,30 @@ const groups = computed(() => [
 
       <UDashboardPanel id="app-panel">
          <template #header>
-            <UDashboardNavbar :title="route.meta.title">
+            <UDashboardNavbar>
                <template #leading>
                   <UDashboardSidebarCollapse />
+                  <UBreadcrumb :items="breadcrumbItems" />
+               </template>
+               <template #right>
+                  <UDropdownMenu :items="userDropdownItem">
+                     <UUser
+                        v-bind="user"
+                        size="sm"
+                        as="button"
+                        class="hover:bg-elevated/75 px-2.5 py-1.5 text-start"
+                     />
+                  </UDropdownMenu>
                </template>
             </UDashboardNavbar>
          </template>
          <template #body>
+            <UPageHeader
+               :title="route.meta.title"
+               :description="route.meta.description"
+            />
             <slot />
          </template>
       </UDashboardPanel>
-
-      <NotificationsSlideover />
    </UDashboardGroup>
 </template>

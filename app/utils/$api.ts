@@ -1,4 +1,4 @@
-import type { H3Error } from "#build/types/nitro-imports"
+import type { H3Error } from "h3"
 
 export default $fetch.create({
    // disable auto retry

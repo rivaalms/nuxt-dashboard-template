@@ -3,4 +3,70 @@
 
 @theme static {
    --font-sans: "Public Sans", sans-serif;
+   --text-2xs: 0.625rem;
+}
+
+.dark {
+   --ui-bg: var(--ui-color-neutral-950);
+   --ui-bg-muted: var(--ui-color-neutral-900);
+}
+
+/* Unovis styling */
+.unovis-xy-container,
+.unovis-single-container,
+[data-vis-bullet-legend] {
+   --vis-font-family: var(--font-sans);
+
+   --vis-color0: var(--ui-primary);
+   --vis-color1: var(--ui-secondary);
+   --vis-color2: var(--ui-accent);
+   --vis-color3: var(--color-cyan-500);
+   --vis-color4: var(--color-rose-500);
+   --vis-color5: var(--color-purple-500);
+
+   --vis-dark-color0: var(--ui-primary);
+   --vis-dark-color1: var(--ui-secondary);
+   --vis-dark-color2: var(--ui-accent);
+   --vis-dark-color3: var(--color-cyan-400);
+   --vis-dark-color4: var(--color-rose-400);
+   --vis-dark-color5: var(--color-purple-400);
+
+   --vis-crosshair-line-stroke-color: var(--ui-bg);
+   --vis-crosshair-circle-stroke-color: var(--ui-bg);
+
+   --vis-axis-tick-color: var(--ui-border);
+   --vis-axis-domain-color: undefined;
+   --vis-axis-domain-line-dasharray: undefined;
+   --vis-axis-grid-color: var(--ui-border);
+   --vis-axis-grid-line-width: 1px;
+   --vis-axis-grid-line-dasharray: none;
+   --vis-axis-grid-opacity: 1;
+   --vis-axis-grid-transition: none;
+   --vis-axis-label-font-size: var(--text-sm);
+   --vis-axis-label-color: var(--ui-text-muted);
+   --vis-axis-label-weight: 500;
+   --vis-axis-tick-label-color: var(--ui-text-muted);
+   --vis-axis-tick-label-font-size: var(--text-xs);
+   --vis-axis-tick-label-weight: 500;
+   --vis-axis-tick-label-cursor: default;
+   --vis-axis-tick-label-text-decoration: none;
+   --vis-axis-tick-line-width: 1px;
+   --vis-axis-tick-label-hide-transition: opacity 300ms ease-in-out;
+   --vis-axis-domain-line-width: undefined;
+   --vis-dark-axis-tick-color: var(--ui-border);
+   --vis-dark-axis-domain-color: undefined;
+   --vis-dark-axis-tick-label-color: var(--ui-text-muted);
+   --vis-dark-axis-grid-color: var(--ui-border);
+   --vis-dark-axis-label-color: var(--ui-text-muted);
+
+   --vis-tooltip-background-color: var(--ui-bg);
+   --vis-tooltip-border-color: var(--ui-border);
+   --vis-tooltip-text-color: var(--ui-text);
+   --vis-tooltip-shadow-color: rgba(172, 179, 184, 0.35);
+   --vis-tooltip-backdrop-filter: none;
+   --vis-tooltip-padding: --spacing(1.5) --spacing(2.5);
+   --vis-dark-tooltip-background-color: var(--ui-bg);
+   --vis-dark-tooltip-text-color: var(--ui-text);
+   --vis-dark-tooltip-border-color: var(--ui-border);
+   --vis-dark-tooltip-shadow-color: rgba(0, 0, 0, 0.95);
 }

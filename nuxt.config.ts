@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-   modules: ["@nuxt/eslint", "@nuxt/ui", "@vueuse/nuxt"],
+   modules: ["@nuxt/eslint", "@nuxt/ui", "@vueuse/nuxt", "@pinia/nuxt"],
 
    ssr: false,
 
@@ -24,7 +24,7 @@ export default defineNuxtConfig({
          colors: [
             "primary",
             "secondary",
-            "tertiary",
+            "accent",
             "error",
             "warning",
             "success",
